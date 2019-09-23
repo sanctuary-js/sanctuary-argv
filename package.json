@@ -1,0 +1,35 @@
+{
+  "name": "sanctuary-argv",
+  "version": "0.0.0",
+  "description": "Principled argument parsing",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sanctuary-js/sanctuary-argv.git"
+  },
+  "type": "module",
+  "files": [
+    "/LICENSE",
+    "/README.md",
+    "/index.js",
+    "/package.json"
+  ],
+  "dependencies": {
+    "sanctuary-def": "0.22.0",
+    "sanctuary-either": "2.1.0",
+    "sanctuary-pair": "2.1.0"
+  },
+  "devDependencies": {
+    "sanctuary": "3.1.0",
+    "sanctuary-scripts": "5.0.x"
+  },
+  "scripts": {
+    "doctest": "sanctuary-doctest",
+    "lint": "sanctuary-lint",
+    "release": "sanctuary-release",
+    "test": "npm run lint && sanctuary-test && npm run doctest"
+  },
+  "mocha": {
+    "ui": "tdd"
+  }
+}
