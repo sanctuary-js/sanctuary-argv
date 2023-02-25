@@ -7,9 +7,7 @@ import {Flag, Option, Left, Right, Pair, parseArgs} from '../index.js';
 
 const {
   Just,
-  K,
   Nothing,
-  append,
   equals,
   show,
 } = sanctuary;
@@ -31,25 +29,20 @@ const defaultOptions = {
   words: [],
 };
 
-//    updateColor :: (Boolean -> Boolean) -> Options -> Options
-const updateColor = f => opts => ({color: f (opts.color), email: opts.email, words: opts.words});
-
-//    updateEmail :: (Maybe String -> Maybe String) -> Options -> Options
-const updateEmail = f => opts => ({color: opts.color, email: f (opts.email), words: opts.words});
-
-//    updateWords :: (Array String -> Array String) -> Options -> Options
-const updateWords = f => opts => ({color: opts.color, email: opts.email, words: f (opts.words)});
-
 //    color :: Either (Options -> Options) (String -> Either String (Options -> Options))
-const color = Flag (updateColor (K (true)));
+const color = Flag (options => ({...options, color: true}));
 
 //    email :: Either (Options -> Options) (String -> Either String (Options -> Options))
-const email = Option (s => s.includes ('@') ?
-                           Right (updateEmail (K (Just (s)))) :
-                           Left (show (s) + ' is not a valid email address'));
+const email = Option (email =>
+  email.includes ('@')
+  ? Right (options => ({...options, email: Just (email)}))
+  : Left (`${show (email)} is not a valid email address`)
+);
 
 //    words :: Either (Options -> Options) (String -> Either String (Options -> Options))
-const words = Option (s => Right (updateWords (append (s))));
+const words = Option (word =>
+  Right (options => ({...options, words: [...options.words, word]}))
+);
 
 //    updaters :: StrMap (Either (Options -> Options) (String -> Either String (Options -> Options)))
 const updaters = {
