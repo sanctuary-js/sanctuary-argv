@@ -8,6 +8,7 @@
     "url": "git://github.com/sanctuary-js/sanctuary-argv.git"
   },
   "type": "module",
+  "exports": "./index.js",
   "files": [
     "/LICENSE",
     "/README.md",

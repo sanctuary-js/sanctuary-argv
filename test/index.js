@@ -4,7 +4,7 @@ import Maybe from 'sanctuary-maybe';
 import show from 'sanctuary-show';
 import Z from 'sanctuary-type-classes';
 
-import {Flag, Option, Left, Right, Pair, parseArgs} from '../index.js';
+import {Flag, Option, Left, Right, Pair, parseArgs} from 'sanctuary-argv';
 
 
 const {Nothing, Just} = Maybe;
