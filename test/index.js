@@ -26,22 +26,22 @@ const defaultOptions = {
   words: [],
 };
 
-//    color :: Either (Options -> Options) (String -> Either String (Options -> Options))
+//    color :: Handler Options
 const color = Flag (options => ({...options, color: true}));
 
-//    email :: Either (Options -> Options) (String -> Either String (Options -> Options))
+//    email :: Handler Options
 const email = Option (email =>
   email.includes ('@')
   ? Right (options => ({...options, email: Just (email)}))
   : Left (`${show (email)} is not a valid email address`)
 );
 
-//    words :: Either (Options -> Options) (String -> Either String (Options -> Options))
+//    words :: Handler Options
 const words = Option (word =>
   Right (options => ({...options, words: [...options.words, word]}))
 );
 
-//    updaters :: StrMap (Either (Options -> Options) (String -> Either String (Options -> Options)))
+//    updaters :: StrMap (Handler Options)
 const updaters = {
   '-c': color, '--color': color, '--colour': color,
   '-e': email, '--email': email,
