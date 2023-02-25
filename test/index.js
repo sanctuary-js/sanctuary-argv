@@ -1,21 +1,18 @@
 import assert from 'assert';
 
-import sanctuary from 'sanctuary';
+import Maybe from 'sanctuary-maybe';
+import show from 'sanctuary-show';
+import Z from 'sanctuary-type-classes';
 
 import {Flag, Option, Left, Right, Pair, parseArgs} from '../index.js';
 
 
-const {
-  Just,
-  Nothing,
-  equals,
-  show,
-} = sanctuary;
+const {Nothing, Just} = Maybe;
 
 //    eq :: a -> a -> Undefined !
 const eq = actual => expected => {
   assert.strictEqual (show (actual), show (expected));
-  assert.strictEqual (equals (actual) (expected), true);
+  assert.strictEqual (Z.equals (actual, expected), true);
 };
 
 //    type Options = { color :: Boolean

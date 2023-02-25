@@ -185,7 +185,7 @@ const Option = def ('Option') ({}) ([Validator (a), Handler (a)]) (Right);
 //.     unprocessed command-line arguments (i.e. the positional arguments).
 //.
 //. ```javascript
-//. > import S from 'sanctuary'; const {Nothing, Just} = S
+//. > import Maybe from 'sanctuary-maybe'; const {Nothing, Just} = Maybe
 //.
 //.   //    conf :: Configuration
 //. > const conf = {
