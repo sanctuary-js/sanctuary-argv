@@ -158,15 +158,15 @@ const Handler = a => $.Either (Setter (a)) (Validator (a));
 //# Flag :: Setter a -> Handler a
 //.
 //. `Handler a` is a type alias for `Either (Setter a) (Validator a)`, so
-//. `S.Left (setter)` creates a `Handler a` value from a `Setter a` value.
-//. `Flag` is an alias for `S.Left`, facilitating more descriptive code.
+//. `Left (setter)` creates a `Handler a` value from a `Setter a` value.
+//. `Flag` is an alias for `Left`, facilitating more descriptive code.
 const Flag = def ('Flag') ({}) ([Setter (a), Handler (a)]) (Left);
 
 //# Option :: Validator a -> Handler a
 //.
 //. `Handler a` is a type alias for `Either (Setter a) (Validator a)`, so
-//. `S.Right (validator)` creates a `Handler a` value from a `Validator a`
-//. value. `Option` is an alias for `S.Right`, facilitating more descriptive
+//. `Right (validator)` creates a `Handler a` value from a `Validator a`
+//. value. `Option` is an alias for `Right`, facilitating more descriptive
 //. code.
 const Option = def ('Option') ({}) ([Validator (a), Handler (a)]) (Right);
 
@@ -380,5 +380,8 @@ export {
   Handler,
   Flag,
   Option,
+  Left,
+  Right,
+  Pair,
   parseArgs,
 };

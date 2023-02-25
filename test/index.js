@@ -2,16 +2,13 @@ import assert from 'assert';
 
 import sanctuary from 'sanctuary';
 
-import {Flag, Option, parseArgs} from '../index.js';
+import {Flag, Option, Left, Right, Pair, parseArgs} from '../index.js';
 
 
 const {
   Just,
   K,
-  Left,
   Nothing,
-  Pair,
-  Right,
   append,
   equals,
   show,
