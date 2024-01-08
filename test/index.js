@@ -1,5 +1,6 @@
 import assert from 'assert';
 
+import test from 'oletus';
 import Maybe from 'sanctuary-maybe';
 import show from 'sanctuary-show';
 import Z from 'sanctuary-type-classes';

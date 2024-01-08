@@ -362,6 +362,7 @@ def ('parseArgs')
            }
          }
        }
+       /* c8 ignore next */
      });
 
 //  > names ('--color')
